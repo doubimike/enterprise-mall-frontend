@@ -47,6 +47,10 @@ var  getHtmlConfig = function (name) {
            {
              test: /\.css$/,
              loader: ExtractTextPlugin.extract( 'style-loader','css-loader') 
+           },
+           {
+             test: /\.(gif|png|jpg)\??.*$/,
+             loader: 'url-loader?limit=100&name=resource/[name].[ext]' 
            }
          ]
        }
