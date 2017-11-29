@@ -2,7 +2,7 @@
  * @Author: zhanghang
  * @Date:   2017-11-27 20:59:28
  * @Last Modified by:   mike.zhang
- * @Last Modified time: 2017-11-28 17:42:04
+ * @Last Modified time: 2017-11-29 14:52:28
  */
 
 var webpack = require('webpack')
@@ -16,12 +16,13 @@ var WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 console.log(WEBPACK_ENV)
 
 
-var getHtmlConfig = function(name) {
+var getHtmlConfig = function(name, title) {
     return {
         template: './src/view/' + name + '.html',
         filename: 'view/' + name + '.html',
         inject: true,
         hash: true,
+        title: title,
         chunks: ['common', name]
     }
 }
@@ -31,6 +32,7 @@ var config = {
         'common': ['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],
         'login': ['./src/page/login/index.js'],
+        'result': ['./src/page/result/index.js'],
     },
     output: {
         path: './dist',
@@ -46,8 +48,10 @@ var config = {
             filename: 'js/base.js'
         }),
         new ExtractTextPlugin('css/[name].css'),
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login')),
+        new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+
     ],
     module: {
         loaders: [{
@@ -56,6 +60,9 @@ var config = {
         }, {
             test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
             loader: 'url-loader?limit=100&name=resource/[name].[ext]'
+        }, {
+            test: /\.string$/,
+            loader: 'html-loader'
         }]
     },
     resolve: {
@@ -64,7 +71,8 @@ var config = {
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',
             service: __dirname + '/src/service',
-            image: __dirname + '/src/image'        }
+            image: __dirname + '/src/image'
+        }
     }
 
 };
