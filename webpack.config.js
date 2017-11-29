@@ -2,7 +2,7 @@
  * @Author: zhanghang
  * @Date:   2017-11-27 20:59:28
  * @Last Modified by:   mike.zhang
- * @Last Modified time: 2017-11-29 14:52:28
+ * @Last Modified time: 2017-11-29 18:11:18
  */
 
 var webpack = require('webpack')
@@ -20,6 +20,7 @@ var getHtmlConfig = function(name, title) {
     return {
         template: './src/view/' + name + '.html',
         filename: 'view/' + name + '.html',
+        favicon:'./favicon.ico',
         inject: true,
         hash: true,
         title: title,
@@ -35,8 +36,8 @@ var config = {
         'result': ['./src/page/result/index.js'],
     },
     output: {
-        path: './dist',
-        publicPath: '/dist',
+        path: __dirname +'/dist/',
+        publicPath: '/dist/',
         filename: 'js/[name].js'
     },
     externals: {
