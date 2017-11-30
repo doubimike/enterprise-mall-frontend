@@ -56,7 +56,7 @@ echo -e "========npm run dist======="
 npm run dist
 
 
-if[ -d "./dist"];
+if[ -d "./dist" ];
 	then 
 	# backup dest
 	echo -e "==== dest backup ==="
