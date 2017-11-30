@@ -60,7 +60,7 @@ if [ -d "./dist" ];
 	then 
 	# backup dest
 	echo -e "==== dest backup ==="
-	mv $DEST_PATH$1/dist $DEST_PATH/dist.bak
+	mv $DEST_PATH$1/dist $DEST_PATH$1/dist.bak
 
 	# copy
 	echo -e "==== dest copy ==="
