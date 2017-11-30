@@ -6,7 +6,7 @@
 #
 
 GIT_HOME=/home/mike/enterprise-mall-frontend/developer/git-repository/
-DEST_PATH=/home/mike/enterprise-mall-frontend/product
+DEST_PATH=/home/mike/enterprise-mall-frontend/product/
 
 #cd  dir
 
