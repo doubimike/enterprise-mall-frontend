@@ -2,7 +2,7 @@
  * @Author: zhanghang
  * @Date:   2017-11-27 20:59:28
  * @Last Modified by:   mike.zhang
- * @Last Modified time: 2017-11-29 18:11:18
+ * @Last Modified time: 2017-11-30 09:58:25
  */
 
 var webpack = require('webpack')
@@ -37,7 +37,7 @@ var config = {
     },
     output: {
         path: __dirname +'/dist/',
-        publicPath: '/dist/',
+        publicPath: WEBPACK_ENV == 'dev' ?'/dist/':'//s.happymall.com/mmall-fe/dist/',
         filename: 'js/[name].js'
     },
     externals: {

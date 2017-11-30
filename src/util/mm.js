@@ -39,7 +39,7 @@ var _mm = {
 	},
 	// 统一登录处理
 	doLogin:function () {
-		window.location.href = './view/login.html?redirect='+encodeURIComponent(window.location.href);
+		window.location.href = './login.html?redirect='+encodeURIComponent(window.location.href);
 	},
 	// 渲染html模板
 	renderHtml:function (htmlTemplate,data) {
